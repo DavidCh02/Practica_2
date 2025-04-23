@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "C:/Users/David/Documents/Practica numero 2/practica-dos/src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "C:/Users/David/Documents/Practica numero 2/practica-dos/src/main/frontend/generated/jar-resources",
+  "staticOutput": "C:/Users/David/Documents/Practica numero 2/practica-dos/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "C:\\Users\\David\\Documents\\Practica numero 2\\practica-dos\\target\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "C:\\Users\\David\\Documents\\Practica numero 2\\practica-dos\\target\\classes\\META-INF\\VAADIN\\webapp",
+  "devBundleOutput": "C:/Users/David/Documents/Practica numero 2/practica-dos/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "C:/Users/David/Documents/Practica numero 2/practica-dos/target/dev-bundle/config",
+  "jarResourcesFolder": "C:/Users/David/Documents/Practica numero 2/practica-dos/src/main/frontend/generated/jar-resources",
+  "themeName": "default",
+  "clientServiceWorkerSource": "C:\\Users\\David\\Documents\\Practica numero 2\\practica-dos\\target\\sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}
