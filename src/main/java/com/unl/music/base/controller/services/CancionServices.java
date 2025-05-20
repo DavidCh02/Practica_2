@@ -39,7 +39,7 @@ public class CancionServices {
         if(nombre.trim().length() > 0 && url.trim().length() > 0 && 
         tipo.trim().length() > 0 && duracion > 0 && id_genero > 0 && id_albun > 0) {
             db.getObj().setNombre(nombre);
-            db.getObj().setDuracion(duracion);
+            db.getObj().setDuracion(duracion); // Verify this line
             db.getObj().setId_album(id_albun);
             db.getObj().setId_genero(id_genero);
             db.getObj().setTipo(TipoArchivoEnum.valueOf(tipo));
@@ -119,16 +119,16 @@ public class CancionServices {
         if(!db.listAll().isEmpty()) {
             Cancion [] arreglo = db.listAll().toArray();           
             for(int i = 0; i < arreglo.length; i++) {
-                
                 HashMap<String, String> aux = new HashMap<>();
-                aux.put("id", arreglo[i].getId().toString()); // Correcto
+                aux.put("id", arreglo[i].getId().toString());
                 aux.put("nombre", arreglo[i].getNombre());
                 aux.put("genero", new DaoGenero().listAll().get(arreglo[i].getId_genero() -1).getNombre());
-                aux.put("id_genero", new DaoGenero().listAll().get(arreglo[i].getId_genero() -1).getId().toString());
+                aux.put("id_genero", arreglo[i].getId_genero().toString());
                 aux.put("albun", new DaoAlbum().listAll().get(arreglo[i].getId_album() -1).getNombre());
-                aux.put("id_albun", new DaoAlbum().listAll().get(arreglo[i].getId_album() -1).getId().toString());
+                aux.put("id_albun", arreglo[i].getId_album().toString());
                 aux.put("url", arreglo[i].getUrl());
                 aux.put("tipo", arreglo[i].getTipo().toString());
+                aux.put("duracion", arreglo[i].getDuracion().toString()); // Fixed duration conversion
                 lista.add(aux);
             }
         }

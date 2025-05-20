@@ -95,7 +95,7 @@ function ArtistaEntryForm(props: ArtistaEntryFormProps) {
     <>
       <Dialog
         modeless
-        headerTitle="Nuevo artista"
+        headerTitle="Nueva Cancion"
         opened={dialogOpened.value}
         onOpenedChanged={({ detail }) => {
           dialogOpened.value = detail.value;
@@ -264,7 +264,10 @@ export default function CancionView() {
   function indexLink({ item }: { item: Artista }) {
     const handleDelete = async () => {
       try {
-        const cancionId = parseInt(item.id); // Asegúrate de no sumar +1 aquí
+        const cancionId = item.id ? parseInt(item.id.toString()) : undefined;
+        if (cancionId === undefined) {
+          throw new Error('Invalid song ID');
+        }
         await CancionServices.delete(cancionId);
         dataProvider.refresh();
         Notification.show('Canción eliminada', { duration: 3000, position: 'bottom-end', theme: 'success' });
@@ -296,20 +299,21 @@ export default function CancionView() {
 
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
 
-      <ViewToolbar title="Lista de artista">
+      <ViewToolbar title="Lista de Canciones">
         <Group>
           <ArtistaEntryForm onArtistaCreated={dataProvider.refresh}/>
         </Group>
       </ViewToolbar>
       <Grid dataProvider={dataProvider.dataProvider}>
-  <GridColumn renderer={indexIndex} header="Nro" />
-  <GridColumn path="nombre" header="Nombre" />
-  <GridColumn path="genero" header="Género" />
-  <GridColumn path="albun" header="Álbum" />
-  <GridColumn path="tipo" header="Tipo" />
-  <GridColumn path="duracion" header="Duración (s)" />
-  <GridColumn header="Acciones" renderer={indexLink} />
-  </Grid>
+        <GridColumn renderer={indexIndex} header="Nro" />
+        <GridColumn path="nombre" header="Nombre" />
+        <GridColumn path="genero" header="Género" />
+        <GridColumn path="albun" header="Álbum" />
+        <GridColumn path="tipo" header="Tipo" />
+        <GridColumn path="duracion" header="Duración (s)" autoWidth />
+        <GridColumn path="url" header="URL" />
+        <GridColumn header="Acciones" renderer={indexLink} />
+      </Grid>
     </main>
   );
 }

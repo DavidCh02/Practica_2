@@ -2,6 +2,9 @@ package com.unl.music.base.models;
 
 import org.checkerframework.checker.units.qual.degrees;
 
+import com.unl.music.base.controller.dao.dao_models.DaoCancion;
+import com.unl.music.base.controller.data_struct.list.LinkedList;
+
 public class Cancion {
     private Integer id;
     private String nombre;
@@ -56,6 +59,17 @@ public class Cancion {
 
     public void setId_album(Integer id_album) {
         this.id_album = id_album;
+    }
+    public Cancion getById(DaoCancion daoCancion, Integer id) {
+        try {
+            LinkedList<Cancion> canciones = daoCancion.listAll();
+            if (id >= 0 && id < canciones.getLength()) {
+                return canciones.get(id);
+            }
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 }

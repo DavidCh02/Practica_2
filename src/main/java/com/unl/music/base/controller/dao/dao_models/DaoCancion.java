@@ -34,7 +34,7 @@ public class DaoCancion extends AdapterDao<Cancion> {
             super.persist(obj);
             return true;
         } catch (Exception e) {
-            System.out.println("Error al guardar: " + e.getMessage());
+            System.out.println("    Error al guardar: " + e.getMessage());
             return false;
         }
     }

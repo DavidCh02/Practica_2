@@ -1,4 +1,4 @@
-# Practica Dos README
+# Unl Music README
 
 - [ ] TODO Replace or update this README with instructions relevant to your application
 
@@ -18,6 +18,6 @@ To build the application in production mode, run:
 ## Getting Started
 
 The [Getting Started](https://vaadin.com/docs/latest/getting-started) guide will quickly familiarize you with your new
-Practica Dos implementation. You'll learn how to set up your development environment, understand the project 
+Unl Music implementation. You'll learn how to set up your development environment, understand the project 
 structure, and find resources to help you add muscles to your skeleton — transforming it into a fully-featured 
 application.
